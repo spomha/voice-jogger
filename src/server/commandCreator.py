@@ -27,9 +27,11 @@ class CommandCreator(object):
             'start' : 'START',
             'stop' : 'STOP',
             'panda': 'PANDA',
+            'banda' : 'PANDA',
             'move' : 'MOVE',
             'go' : 'MOVE',
             'up' : 'UP',
+            'op' : 'UP',
             'down' : 'DOWN',
             'left' : 'LEFT',
             'right' : 'RIGHT',
@@ -44,6 +46,7 @@ class CommandCreator(object):
             'low' : 'LOW',
             'medium' : 'MEDIUM',
             'high' : 'HIGH',
+            'hi' : 'HIGH',
             'size' : 'SIZE',
             'tool' : 'TOOL',
             'open' : 'OPEN',
@@ -51,8 +54,10 @@ class CommandCreator(object):
             'grasp' : 'GRASP',
             'rotate' : 'ROTATE',
             'list' : 'LIST',
+            'least' : 'LIST',
             'show' : 'SHOW',
             'task' : 'TASK',
+            'tasks' : 'TASK',
             'play' : 'PLAY',
             'do' : 'DO',
             'remove' : 'REMOVE',
@@ -64,6 +69,7 @@ class CommandCreator(object):
             'gripper' : 'GRIPPER',
             'grasp' : 'GRASP',
             'position' : 'POSITION',
+            'positions' : 'POSITION',
             'spot' : 'SPOT',
             'other' : 'OTHER',
             'opposite' : 'OPPOSITE', 
@@ -173,10 +179,10 @@ class CommandCreator(object):
             if len(words) == 0:
                 return ["ROTATE"]
             else:
-                if self.all_words_lookup_table.get(words[0], '') in ['OTHER', 'COUNTER', 'OPPOSITE']:
+                if self.all_words_lookup_table.get(words[0], '') in ['OTHER', 'COUNTER', 'OPPOSITE', 'BACK', 'BACKWARD']:
                     words.pop(0)
                     return ["ROTATE", "BACK"]
-                elif self.all_words_lookup_table.get(words[0], '') in ['UP', 'DOWN', 'LEFT', 'RIGHT', 'FORWARD', 'BACKWARD']:
+                elif self.all_words_lookup_table.get(words[0], '') in ['UP', 'DOWN', 'LEFT', 'RIGHT', 'FORWARD']:
                     return ["ROTATE"] 
                 else:
                     print("Invalid " + command + " command.")
